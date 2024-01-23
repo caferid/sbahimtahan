@@ -76,11 +76,13 @@ const { basket, setbasket, handelbasket,basketdelete,azalt,artir }=useBasket()
                         <div key={item._id} className="probox">
                             <div className="src">
                             <div onClick={()=>handelwish(item)} className="wish">
-                                <i className="fa-solid fa-heart"></i>
+                                <i className={`fa-${wish.find(x=>x._id===item._id)?'solid':'regular'} fa-heart`}></i>
                             </div>
+                            <Link to={`/detail/${item._id}`}>
                                 <img src={item.src} alt="" />
+                            </Link>
                             </div>
-                            <div onClick={()=>handelbasket(item)}  className="basket">
+                            <div onClick={()=>handelbasket(item)} className="basket">
                                 <p>ADD TO BASKET</p>
                             </div>
                             <div className="name">
@@ -100,6 +102,7 @@ const { basket, setbasket, handelbasket,basketdelete,azalt,artir }=useBasket()
                     </div>
                 </div>
             </div>
+          
 
         </div>
     )

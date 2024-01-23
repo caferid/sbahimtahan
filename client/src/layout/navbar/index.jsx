@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import './index.scss'
 import { Link, NavLink } from 'react-router-dom'
+import { useWish } from '../../context/wishContext'
+import { useBasket } from '../../context/basketContext'
 function Navbar() {
     const [isopen, setisopen] = useState(true)
+
+    const {wish,setwish,handelwish}=useWish()
+    const { basket, setbasket, handelbasket,basketdelete,azalt,artir }=useBasket()
     return (
         <div id='navbar'>
             <div className="dev">
@@ -12,12 +17,12 @@ function Navbar() {
                 <div className="links">
                     <NavLink className={'nav'} to={'/'}>HOME</NavLink>
                     <NavLink className={'nav'} to={'/add'}>ADD</NavLink>
-                    <NavLink className={'nav'} to={'/wish'}>WISh</NavLink>
+                    <NavLink className={'nav'} to={'/wish'}>WISh <span>{wish.length}</span></NavLink>
                     <Link className={'nav'} >about</Link>
                     <Link className={'nav'} >connact</Link>
                 </div>
                 <div className="icons">
-                    <NavLink to={'/basket'}><i className="fa-solid fa-basket-shopping"></i></NavLink>
+                    <NavLink to={'/basket'}><i className="fa-solid fa-basket-shopping"></i><span>{basket.length}</span></NavLink>
                     <i className="fa-solid fa-magnifying-glass"></i>
                     <i className="fa-solid fa-user"></i>
 

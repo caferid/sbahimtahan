@@ -3,8 +3,10 @@ import './index.scss'
 import { Helmet } from 'react-helmet-async'
 import { useWish } from '../../context/wishContext'
 import axios from 'axios'
+import { useBasket } from '../../context/basketContext'
 function Wish() {
     const {wish,setwish,handelwish}=useWish()
+    const {basket, setbasket, handelbasket,basketdelete,azalt,artir }=useBasket()
 
     ////
     // const [product, setproduct] = useState([])
@@ -35,7 +37,7 @@ function Wish() {
                             </div>
                                 <img src={item.src} alt="" />
                             </div>
-                            <div className="basket">
+                            <div onClick={()=>handelbasket(item)}  className="basket">
                                 <p>ADD TO BASKET</p>
                             </div>
                             <div className="name">

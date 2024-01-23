@@ -2,6 +2,8 @@ import React from 'react'
 import './index.scss'
 import { Helmet } from 'react-helmet-async'
 import Product from '../../components/product'
+import NewArr from '../../components/newArr'
+import Header from '../../components/header'
 function Home() {
     return (
         <>
@@ -12,7 +14,9 @@ function Home() {
             </Helmet>
 
             <div>
+                <Header></Header>
                 <Product></Product>
+                <NewArr></NewArr>
             </div>
         </>
     )
